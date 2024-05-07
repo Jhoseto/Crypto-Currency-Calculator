@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="containerCalc">
+    <h1>Crypto Currency Exchange Rate</h1>
+    <form id="currencyExchangeForm">
+        <div class="form-group">
+            <label for="fromCurrency">From Currency:</label>
+            <select id="fromCurrency" name="fromCurrency" required>
+                <option th:each="currency : ${allCurrency}" th:value="${currency.symbol}" th:text="${currency.name}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="toCurrency">To Currency:</label>
+            <select id="toCurrency" name="toCurrency" required>
+                <option th:each="currency : ${allCurrency}" th:value="${currency.symbol}" th:text="${currency.name}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required>
+        </div>
+        <button type="submit">Convert</button>
+    </form>
+    <div class="form-group">
+        <label for="result">Result:</label>
+        <input type="text" id="result" name="result" readonly>
+    </div>
+</div>
+<div class="container">
+    <h1>All Cryptocurrencies</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Price (USD)</th>
+            <th>Change (24Hr)</th>
+            <th>VWAP (24Hr)</th>
+            <th>Volume (USD 24Hr)</th>
+            <th>Supply</th>
+            <th>Max Supply</th>
+            <th>Market Cap (USD)</th>
+            <th>Explorer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="currency : ${allCurrency}">
+            <td th:text="${currency.rank}"></td>
+            <td th:text="${currency.symbol}"></td>
+            <td th:text="${currency.name}"></td>
+            <td th:text="${currency.priceUsd}"></td>
+            <td th:text="${currency.changePercent24Hr}"></td>
+            <td th:text="${currency.vwap24Hr}"></td>
+            <td th:text="${currency.volumeUsd24Hr}"></td>
+            <td th:text="${currency.supply}"></td>
+            <td th:text="${currency.maxSupply}"></td>
+            <td th:text="${currency.marketCapUsd}"></td>
+            <td>
+                <a th:href="${currency.explorer}" th:text="${currency.explorer}"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
