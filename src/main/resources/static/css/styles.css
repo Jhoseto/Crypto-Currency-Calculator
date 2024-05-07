@@ -9,17 +9,24 @@ body {
 .containerCalc {
     width: 100%;
     max-width: 600px;
-    margin: 0 auto; /* Center the container */
+    margin: 20px auto;
     padding: 20px;
     box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Result field styles */
 .result-field {
-    /* Добавете вашите стилове тук */
-    width: 200px; /* Примерен размер */
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    width: calc(100%);
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
     box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* Form group styles */
@@ -31,7 +38,8 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 5px;
-    margin-top: 5px;
+    font-weight: bold;
+    color: #333;
 }
 
 /* Select styles */
@@ -39,20 +47,19 @@ body {
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 2px solid #007bff;
     border-radius: 5px;
     box-sizing: border-box;
 }
 
 /* Input styles */
 .form-group input[type="number"] {
-    width: 100%;
+    width: calc(50% - 10px);
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 2px solid #007bff;
     border-radius: 5px;
     box-sizing: border-box;
-    margin: auto;
 }
 
 /* Button styles */
@@ -66,37 +73,42 @@ button[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 button[type="submit"]:hover {
     background-color: #0056b3;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    transform: scale(1.05);
 }
 
-
-/* CSS стил за таблицата */
+/* Table styles */
 .container {
-    width: 1600px;
-    height: 750px;
-    overflow: auto;
-    padding: 20px;
+    width: 100%;
+    max-width: 1600px;
+    max-height: 700px;
     margin: 20px auto;
-
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
+    color: #969494;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid #3b3838;
 }
 
 th, td {
-    padding: 8px;
+    padding: 10px;
     border-bottom: 1px solid #ddd;
     text-align: left;
 }
@@ -112,6 +124,7 @@ tr:nth-child(even) {
 
 tr:hover {
     background-color: #f2f2f2;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {

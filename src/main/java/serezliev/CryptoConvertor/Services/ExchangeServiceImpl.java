@@ -70,7 +70,7 @@ public class ExchangeServiceImpl implements ExchangeService {
             double toCurrencyRate = Double.parseDouble(toCurrencyOptional.get().getPriceUsd());
 
 
-            double result = amount * (toCurrencyRate / fromCurrencyRate);
+            double result = amount * (fromCurrencyRate / toCurrencyRate);
             return String.valueOf(result);
         } else {
             return "Invalid currency symbol";

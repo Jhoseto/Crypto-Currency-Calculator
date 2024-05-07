@@ -10,21 +10,24 @@
 <div class="containerCalc">
     <h1>Crypto Currency Exchange Rate</h1>
     <form id="currencyExchangeForm" th:action="@{/convert}" method="post">
-        <div class="form-group">
-            <label for="fromCurrency">From Currency:</label>
+        <div style="margin-bottom: 5px">
+
+            <label for="fromCurrency">From Currency</label>
+            <label style="margin-left: 280px" for="amount">Amount</label>
+        </div>
+        <div class="form-group" style="display: flex">
+
             <select id="fromCurrency" name="fromCurrency" required>
                 <option th:each="currency : ${allCurrency}" th:value="${currency.symbol}" th:text="${currency.name}"></option>
             </select>
+
+            <input type="number" id="amount" name="amount" required>
         </div>
         <div class="form-group">
             <label for="toCurrency">To Currency:</label>
             <select id="toCurrency" name="toCurrency" required>
                 <option th:each="currency : ${allCurrency}" th:value="${currency.symbol}" th:text="${currency.name}"></option>
             </select>
-        </div>
-        <div class="form-group">
-            <label for="amount">Amount:</label>
-            <input type="number" id="amount" name="amount" required>
         </div>
         <button type="submit">Convert</button>
     </form>
