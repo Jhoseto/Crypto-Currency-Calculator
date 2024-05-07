@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
 <body>
 <div class="containerCalc">
     <h1>Crypto Currency Exchange Rate</h1>
-    <form id="currencyExchangeForm">
+    <form id="currencyExchangeForm" th:action="@{/convert}" method="post">
         <div class="form-group">
             <label for="fromCurrency">From Currency:</label>
             <select id="fromCurrency" name="fromCurrency" required>
@@ -30,7 +30,7 @@
     </form>
     <div class="form-group">
         <label for="result">Result:</label>
-        <input type="text" id="result" name="result" readonly>
+        <input th:value="${conversionRequest}" type="text" id="result" name="result" readonly class="result-field" >
     </div>
 </div>
 <div class="container">
@@ -72,3 +72,4 @@
 </div>
 </body>
 </html>
+

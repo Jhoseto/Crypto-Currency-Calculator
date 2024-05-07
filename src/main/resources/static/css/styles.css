@@ -13,6 +13,14 @@ body {
     padding: 20px;
     box-sizing: border-box;
 }
+.result-field {
+    /* Добавете вашите стилове тук */
+    width: 200px; /* Примерен размер */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
 /* Form group styles */
 .form-group {
@@ -23,6 +31,7 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 /* Select styles */
@@ -43,6 +52,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+    margin: auto;
 }
 
 /* Button styles */

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import serezliev.CryptoConvertor.Components.CryptoCurrencyMapper;
 import serezliev.CryptoConvertor.Model.CryptoCurrencyModel;
@@ -12,12 +13,19 @@ import serezliev.CryptoConvertor.Model.CryptoCurrencyModel;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ExchangeServiceImpl implements ExchangeService {
 
     private static final String API_URL = "https://api.coincap.io/v2";
     private static final String API_KEY = "377e21a0-5222-4b4b-b097-dfe5bb556475";
+    private final CryptoCurrencyModel cryptoCurrencyModel;
+
+    public ExchangeServiceImpl(CryptoCurrencyModel cryptoCurrencyModel) {
+        this.cryptoCurrencyModel = cryptoCurrencyModel;
+    }
+
 
     @Override
     public List<CryptoCurrencyModel> getAllCryptoCurrencies() {
@@ -43,4 +51,30 @@ public class ExchangeServiceImpl implements ExchangeService {
             return new ArrayList<>();
         }
     }
+
+    @Override
+    public String convertCurrency(String fromCurrency, String toCurrency, double amount) {
+        List<CryptoCurrencyModel> allCurrency = getAllCryptoCurrencies();
+
+        Optional<CryptoCurrencyModel> fromCurrencyOptional = allCurrency.stream()
+                .filter(currency -> currency.getSymbol().equals(fromCurrency))
+                .findFirst();
+
+        Optional<CryptoCurrencyModel> toCurrencyOptional = allCurrency.stream()
+                .filter(currency -> currency.getSymbol().equals(toCurrency))
+                .findFirst();
+
+        if (fromCurrencyOptional.isPresent() && toCurrencyOptional.isPresent()) {
+            // Take usd rate
+            double fromCurrencyRate = Double.parseDouble(fromCurrencyOptional.get().getPriceUsd());
+            double toCurrencyRate = Double.parseDouble(toCurrencyOptional.get().getPriceUsd());
+
+
+            double result = amount * (toCurrencyRate / fromCurrencyRate);
+            return String.valueOf(result);
+        } else {
+            return "Invalid currency symbol";
+        }
+    }
+
 }

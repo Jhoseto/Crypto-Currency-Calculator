@@ -7,4 +7,6 @@ import java.util.List;
 public interface ExchangeService {
 
     List<CryptoCurrencyModel> getAllCryptoCurrencies();
+
+    String convertCurrency(String fromCurrency, String toCurrency, double amount);
 }

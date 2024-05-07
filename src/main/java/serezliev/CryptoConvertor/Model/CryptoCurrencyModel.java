@@ -1,5 +1,8 @@
 package serezliev.CryptoConvertor.Model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CryptoCurrencyModel {
     private String id;
     private String rank;
