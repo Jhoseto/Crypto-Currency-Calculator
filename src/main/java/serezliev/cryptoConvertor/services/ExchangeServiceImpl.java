@@ -19,11 +19,6 @@ public class ExchangeServiceImpl implements ExchangeService {
 
     private static final String API_URL = "https://api.coincap.io/v2";
     private static final String API_KEY = "377e21a0-5222-4b4b-b097-dfe5bb556475";
-    private final CryptoCurrencyModel cryptoCurrencyModel;
-
-    public ExchangeServiceImpl(CryptoCurrencyModel cryptoCurrencyModel) {
-        this.cryptoCurrencyModel = cryptoCurrencyModel;
-    }
 
 
     @Override
