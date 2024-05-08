@@ -1,4 +1,4 @@
-package serezliev.CryptoConvertor.Model;
+package serezliev.cryptoConvertor.model;
 
 import org.springframework.stereotype.Component;
 
@@ -16,8 +16,6 @@ public class CryptoCurrencyModel {
     private String changePercent24Hr;
     private String vwap24Hr;
     private String explorer;
-
-
 
 
     public String getId() {

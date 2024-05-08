@@ -1,6 +1,6 @@
-package serezliev.CryptoConvertor.Services;
+package serezliev.cryptoConvertor.services;
 
-import serezliev.CryptoConvertor.Model.CryptoCurrencyModel;
+import serezliev.cryptoConvertor.model.CryptoCurrencyModel;
 
 import java.util.List;
 

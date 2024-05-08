@@ -1,4 +1,4 @@
-package serezliev.CryptoConvertor.Model;
+package serezliev.cryptoConvertor.model;
 
 public class ConversionRequestModel {
 

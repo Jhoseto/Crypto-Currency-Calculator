@@ -1,4 +1,4 @@
-package serezliev.CryptoConvertor.Configurations;
+package serezliev.cryptoConvertor.configurations;
 
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

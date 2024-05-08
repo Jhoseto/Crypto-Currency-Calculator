@@ -1,7 +1,7 @@
-package serezliev.CryptoConvertor.Components;
+package serezliev.cryptoConvertor.components;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import serezliev.CryptoConvertor.Model.CryptoCurrencyModel;
+import serezliev.cryptoConvertor.model.CryptoCurrencyModel;
 
 import java.util.ArrayList;
 import java.util.List;
