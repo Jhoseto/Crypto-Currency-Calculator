@@ -6,7 +6,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.springframework.stereotype.Service;
-import serezliev.cryptoConvertor.components.CryptoCurrencyMapper;
+import serezliev.cryptoConvertor.components.MapperForCryptoCurrency;
 import serezliev.cryptoConvertor.model.CryptoCurrencyModel;
 
 import java.io.IOException;
@@ -35,9 +35,9 @@ public class ExchangeServiceImpl implements ExchangeService {
                 String responseBody = response.body().string();
                 ObjectMapper objectMapper = new ObjectMapper();
                 JsonNode jsonNode = objectMapper.readTree(responseBody);
-                return CryptoCurrencyMapper.mapJsonToCryptoCurrencies(jsonNode);
+                return MapperForCryptoCurrency.mapJsonToCryptoCurrencies(jsonNode);
             } else {
-                System.err.println("Request failed with code: " + response.code());
+                System.out.println("Request failed with code: " + response.code());
                 return new ArrayList<>();
             }
         } catch (IOException e) {

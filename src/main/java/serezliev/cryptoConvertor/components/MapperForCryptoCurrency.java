@@ -6,7 +6,7 @@ import serezliev.cryptoConvertor.model.CryptoCurrencyModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CryptoCurrencyMapper {
+public class MapperForCryptoCurrency {
 
     public static List<CryptoCurrencyModel> mapJsonToCryptoCurrencies(JsonNode jsonNode) {
         List<CryptoCurrencyModel> cryptoCurrencies = new ArrayList<>();
